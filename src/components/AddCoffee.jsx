@@ -6,21 +6,21 @@ const AddCoffee = () => {
         event.preventDefault();
         const form = event.target;
 
-        const coffeeName = form.coffeeName.value;
+        const name = form.name.value;
         const quantity = form.quantity.value;
         const supplier = form.supplier.value;
         const taste = form.taste.value;
         const category = form.category.value;
         const details = form.details.value;
         const photo = form.photo.value;
-        const newCoffee = { coffeeName, quantity, supplier, taste, category, details, photo }
+        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
         console.log(newCoffee)
 
 
 
 
         // send data to the server
-        fetch('http://localhost:5000/addCoffee', {
+        fetch('http://localhost:5000/coffee', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -33,7 +33,7 @@ const AddCoffee = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'success!',
-                        text: 'User Added successfully',
+                        text: 'Coffee Added successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -55,7 +55,7 @@ const AddCoffee = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="coffeeName" placeholder="coffee name" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="coffee name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
